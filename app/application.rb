@@ -20,6 +20,9 @@ class Application
       else
         @@cart.each{ |item| resp.write "#{item}\n"}
       end
+    elsif req.path.match(/add/)
+      item_to_add = req.params["item"]
+      resp.write "added #{item_to_add}"
     else
       resp.write "Path Not Found"
     end
